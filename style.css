@@ -1,0 +1,282 @@
+/* -----------------Variables--------------------- */
+:root {
+  /* Primary */
+  --crl-Primary-light: hsl(217, 19%, 35%);
+  --crl-Primary-dark: hsl(219, 29%, 14%);
+
+  /* Secondary */
+  --crl-Secondary-ligt: hsl(210, 46%, 95%);
+  --crl-Secondary-dark: hsl(0, 0%, 81%);
+
+  /* Neutral */
+  --crl-Violet: hsl(263, 55%, 52%);
+  --crl-white: hsl(0, 0%, 100%);
+
+  /* Fonts */
+  --font-Family: "Barlow Semi Condensed", sans-serif;
+  --font-Bold: 600;
+  --font-Mid: 500;
+}
+
+/* ----------------------------------Base------------ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* 1rem = 10px */
+}
+
+body {
+  background-color: var(--crl-Secondary-ligt);
+  font-family: var(--font-Family);
+  min-height: 100vh;
+}
+
+.main {
+  margin: 5rem auto;
+}
+
+@media only screen and (min-width: 64em) {
+  .main {
+    width: 85%;
+    margin: 10rem auto;
+  }
+}
+/* -----------------------------------Fonts------------- */
+/*------------------- Light */
+.heading__primary--light {
+  color: var(--crl-Primary-dark);
+  font-weight: var(--font-mid);
+  letter-spacing: 0.2px;
+  font-size: clamp(1.2rem, 1.6vw, 1.9rem);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.heading__primary--light span {
+  color: var(--crl-Primary-light);
+  letter-spacing: normal;
+  font-size: clamp(1rem, 1vw, 1.4rem);
+}
+
+.heading__secondary--light {
+  color: var(--crl-Primary-dark);
+  font-size: clamp(1.4rem, 1.8vw, 2rem);
+  font-weight: var(--font-Bold);
+}
+
+.heading__p--light {
+  color: var(--crl-Primary-light);
+  font-weight: var(--font-Mid);
+  font-size: clamp(1rem, 1vw, 1.4rem);
+}
+
+@media only screen and (min-width: 64em) {
+  .heading__p--dark,
+  .heading__p--light {
+    line-height: 1.3;
+  }
+}
+/* -----------------Dark */
+.heading__primary--dark {
+  color: var(--crl-Secondary-ligt);
+  font-weight: var(--font-mid);
+  letter-spacing: 0.2px;
+  font-size: clamp(1.2rem, 1.6vw, 1.9rem);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.heading__primary--dark span {
+  color: var(--crl-Secondary-dark);
+  letter-spacing: normal;
+  font-size: clamp(1rem, 1vw, 1.4rem);
+}
+
+.heading__secondary--dark {
+  color: var(--crl-Secondary-ligt);
+  font-size: clamp(1.4rem, 1.8vw, 2rem);
+  font-weight: var(--font-Bold);
+}
+
+.heading__p--dark {
+  color: var(--crl-Secondary-dark);
+  font-weight: var(--font-Mid);
+  font-size: clamp(1rem, 1vw, 1.4rem);
+}
+/* ----------------------------card-------------- */
+/* 64em = 1024px Desktop size */
+
+@media only screen and (min-width: 64em) {
+  .article {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /*min-50px prefer-5vw  max-60px  */
+    grid-template-rows: repeat(8, calc(clamp(5rem, 5vw, 6rem) + 1rem));
+    gap: 1rem;
+  }
+
+  /* row-> column -> row-> colum */
+  .daniel {
+    grid-area: 1/1/5/7;
+  }
+  .jonathan {
+    grid-area: 1/7/5/10;
+  }
+  .kira {
+    grid-area: 1/10/-1/-1;
+  }
+  .jeanette {
+    grid-area: 5/1/-1/4;
+  }
+  .patrick {
+    grid-area: 5/4/-1/10;
+  }
+}
+
+.card {
+  width: 90%;
+  margin: 4vw auto;
+  border-radius: 0.5rem;
+  padding: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
+  /* transiction for the box shadow bellow */
+  transition: box-shadow 0.2s cubic-bezier(0.01, 0.75, 1, -0.3);
+}
+
+@media only screen and (min-width: 64em) {
+  .card {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.card figure {
+  width: 90%;
+  margin: 2vw auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.card span {
+  display: block;
+}
+
+.card div {
+  width: clamp(4rem, 8%, 6rem);
+  border-radius: 50%;
+  height: auto;
+  overflow: hidden;
+}
+.card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  font-style: italic;
+}
+
+.card h3 {
+  width: 90%;
+  margin: clamp(0.5rem, 2vw, 1rem) auto;
+}
+
+.card p {
+  width: 90%;
+  margin: clamp(0.5rem, 2vw, 1rem) auto;
+}
+
+/* Diffrent design */
+.daniel {
+  background: var(--crl-Violet);
+  background-image: url(./images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: 100px;
+}
+.jonathan {
+  background: var(--crl-Primary-light);
+}
+
+.patrick {
+  background-color: var(--crl-Primary-dark);
+}
+
+/* Box shadow */
+
+.daniel,
+.patrick,
+.jonathan {
+  --box-shadow-dark: rgba(207, 207, 207, 1);
+  border: 1px solid var(--crl-Secondary-ligt);
+  box-shadow: 0.5rem 0.5rem 1rem var(--box-shadow-dark),
+    -0.5rem -0.5rem 1rem var(--box-shadow-dark), 0.5rem 0.5rem 1rem,
+    0.5rem 0.5rem 1rem var(--box-shadow-dark),
+    -0.5rem -0.5rem 1rem var(--box-shadow-dark);
+}
+
+.daniel:hover,
+.daniel:focus,
+.patrick:hover,
+.patrick:focus,
+.jonathan:hover .jonathan:focus {
+  --box-shadow-dark: rgba(25, 33, 46, 0.3);
+  box-shadow: inset 0.5rem 0.5rem 1rem var(--box-shadow-dark),
+    -0.5rem -0.5rem 1rem var(--box-shadow-dark),
+    0.5rem 0.5rem 1rem var(--box-shadow-dark),
+    inset -0.5rem -0.5rem 1rem var(--box-shadow-dark);
+}
+
+.jeanette,
+.kira {
+  --box-shadow-light: rgba(0, 0, 0, 0.2);
+  background: var(--crl-white);
+  border: 1px solid var(--crl-white);
+  box-shadow: 0.5rem 0.5rem 1rem var(--box-shadow-light),
+    -0.5rem -0.5rem 1rem var(--box-shadow-light),
+    0.5rem 0.5rem 1rem var(--box-shadow-light),
+    -0.5rem -0.5rem 1rem var(--box-shadow-light);
+}
+
+.jeanette:hover,
+.jeanette:focus,
+.kira:hover,
+.kira:focus {
+  --box-shadow-light: rgba(0, 0, 0, 0.2);
+  background: var(--crl-white);
+  box-shadow: inset 0.5rem 0.5rem 1rem var(--box-shadow-light),
+    -0.5rem -0.5rem 1rem var(--box-shadow-light),
+    0.5rem 0.5rem 1rem var(--box-shadow-light),
+    inset -0.5rem -0.5rem 1rem var(--box-shadow-light);
+}
+
+/* ---------------Footer */
+.footer {
+  text-align: center;
+}
+.footer p {
+  font-size: clamp(1rem, 1.5vw, 1.8rem);
+  color: var(--crl-Primary-dark);
+}
+.footer a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--crl-Primary-light);
+  transition: color 0.2s ease;
+  text-transform: uppercase;
+  font-size: var(--font-Bold);
+}
+.footer a:hover {
+  color: var(--box-shadow-dark);
+}
